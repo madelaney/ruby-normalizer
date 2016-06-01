@@ -1,0 +1,6 @@
+= Normalizer
+
+Describe your project here
+
+:include:ruby-normalizer.rdoc
+

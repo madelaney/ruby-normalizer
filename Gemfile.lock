@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    ruby-normalizer (1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ruby-normalizer!
+
+BUNDLED WITH
+   1.11.2

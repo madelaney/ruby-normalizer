@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# Remove older gems
+rm *.gem
+
+# Yeah, my 022 mask can get annoying some times
+chmod -R 0755 *
+
+gem build ruby-normalizer.gemspec

@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'normalizer'
+
+options = {file: nil, env: nil, output: nil}
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{__FILE__} [options]"
+
+  opts.on("-f=FILE", "--file=FILE", "The file to read in and parse") do |v|
+    if File.exists? v
+      options[:file] = v
+    else
+      raise IOError.new(format('No such file %s', v))
+    end
+  end
+
+  opts.on("-e=FILE", "--env=FILE", "Load additonal variables from a file (key value pair") do |v|
+    if File.exists? v
+      options[:env] = v
+    else
+      raise IOError.new(format('No such file %s', v))
+    end
+  end
+
+  opts.on('-o=FILE', '--output=FILE', 'The file to save to') do |v|
+    options[:output] = v
+  end
+
+  opts.on_tail('-h', '--help', 'Display help message') do |v|
+    puts opts
+    exit
+  end
+end.parse!
+
+raise OptionParser::MissingArgument.new('You must pass in the -file argument') if options[:file].nil?
+
+nom = Normalizer.new options[:file], properties: options[:env], output: options[:output]
+nom.parse
