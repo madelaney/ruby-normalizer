@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version = Version::VERSION
   s.author = 'Mike Delaney'
   s.email = 'github@mldelaney.com'
-  s.homepage = 'http://github.com/madelaney'
+  s.homepage = 'http://github.com/madelaney/ruby-normalizer'
   s.platform = Gem::Platform::RUBY
   s.summary = 'A simple ruby class that searchers for place holders and inserts environment variable values in their place.'
   s.files = Dir['**/*.rb']
